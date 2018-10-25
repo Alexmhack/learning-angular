@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { SharedModule } from './shared/shared.module';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     BrowserModule,
     MDBBootstrapModule.forRoot(),
     SharedModule,
-    FormsModule
+    FormsModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
