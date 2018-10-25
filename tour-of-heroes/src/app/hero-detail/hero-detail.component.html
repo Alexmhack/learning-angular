@@ -1,3 +1,18 @@
-<p>
-  hero-detail works!
-</p>
+<div *ngIf="hero" class="jumbotron mt-4">
+    <h2 class="h1 h1-responsive">
+    	{{ hero.name | titlecase }}
+    </h2>
+    <div class="lead">
+    	Id: {{ hero.id }}<br>
+        Name: {{ hero.name }}
+		<div class="md-form">
+		  <input mdbInputDirective type="text" name="text" [(ngModel)]="hero.name" id="form1" class="form-control">
+		  <label for="form1" class="">Edit Hero Name</label>
+		</div>
+    </div>
+    <hr class="my-2">
+    <p>
+
+    </p>
+    <a class="btn btn-primary btn-lg waves-light" role="button" mdbWavesEffect>Save</a>
+</div>

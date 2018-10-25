@@ -19,23 +19,6 @@
         </mdb-card>
     </div>
 
-    <div *ngIf="selectedHero" class="jumbotron mt-4">
-        <h2 class="h1 h1-responsive">
-        	{{ selectedHero.name | titlecase }}
-        </h2>
-        <div class="lead">
-        	Id: {{ selectedHero.id }}<br>
-            Name: {{ selectedHero.name }}
-    		<div class="md-form">
-    		  <input mdbInputDirective type="text" name="text" [(ngModel)]="selectedHero.name" id="form1" class="form-control">
-    		  <label for="form1" class="">Edit Hero Name</label>
-    		</div>
-        </div>
-        <hr class="my-2">
-        <p>
-
-        </p>
-        <a class="btn btn-primary btn-lg waves-light" role="button" mdbWavesEffect>Save</a>
-    </div>
+    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 </div>
