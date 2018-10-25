@@ -11,8 +11,9 @@ export class MessagesService {
   	this.messages.push(message)
   }
 
-  clear() {
-  	this.messages = [];
+  clear(message: string) {
+  	const index: number = this.messages.indexOf(message);
+  	this.messages.splice(index, 1);
   }
 
   constructor() { }
