@@ -8,12 +8,14 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { SharedModule } from './shared/shared.module';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { CoreModule } from './core/core.module';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
