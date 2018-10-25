@@ -1,17 +1,41 @@
-<div class="jumbotron mt-4 col-md-4 col-md-offset-4">
-    <h2 class="h1 h1-responsive">
-    	{{ hero.name | titlecase }}
-    </h2>
-    <div class="lead">
-    	Id: {{ hero.id }}<br>
-		<div class="md-form">
-		  <input mdbInputDirective type="text" name="text" [(ngModel)]="hero.name" id="form1" class="form-control">
-		  <label for="form1" class="">Edit Hero Name</label>
-		</div>
-    </div>
-    <hr class="my-2">
-<!--     <p>
+<div class="col-md-6 col-md-offset-6">
 
-    </p> -->
-<!--     <a class="btn btn-primary btn-lg waves-light" role="button" mdbWavesEffect>Learn more</a> -->
+    <div *ngFor="let hero of heroes" class="mt-4">
+        <mdb-card>
+          <mdb-card-header 
+            [class.primary-color]="hero === selectedHero"
+            [class.white-text]="hero === selectedHero"
+            [class.mdb-color]="hero !== selectedHero"
+            [class.lighten-4]="hero !== selecterHero"
+            [class.black-text]="hero !== selectedHero">
+             <!-- class="mdb-color lighten-4 white-text" -->
+            <h4>{{ hero.name | titlecase }}</h4>
+          </mdb-card-header>
+          <mdb-card-body>
+            <mdb-card-title>Id: {{ hero.id }}</mdb-card-title>
+            <mdb-card-text>Name: {{ hero.name | titlecase }}</mdb-card-text>
+            <a (click)="onSelect(hero)" mdbBtn color="blue-grey" class="waves-light" mdbWavesEffect>Edit Hero</a>
+          </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <div *ngIf="selectedHero" class="jumbotron mt-4">
+        <h2 class="h1 h1-responsive">
+        	{{ selectedHero.name | titlecase }}
+        </h2>
+        <div class="lead">
+        	Id: {{ selectedHero.id }}<br>
+            Name: {{ selectedHero.name }}
+    		<div class="md-form">
+    		  <input mdbInputDirective type="text" name="text" [(ngModel)]="selectedHero.name" id="form1" class="form-control">
+    		  <label for="form1" class="">Edit Hero Name</label>
+    		</div>
+        </div>
+        <hr class="my-2">
+        <p>
+
+        </p>
+        <a class="btn btn-primary btn-lg waves-light" role="button" mdbWavesEffect>Save</a>
+    </div>
+
 </div>
