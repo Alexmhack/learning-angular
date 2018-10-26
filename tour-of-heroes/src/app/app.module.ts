@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { CoreModule } from './core/core.module';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MessagesComponent } from './messages/messages.component';
     MDBBootstrapModule.forRoot(),
     SharedModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
