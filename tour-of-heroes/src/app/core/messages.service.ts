@@ -16,5 +16,9 @@ export class MessagesService {
   	this.messages.splice(index, 1);
   }
 
+  clearAll() {
+    this.messages = [];
+  }
+
   constructor() { }
 }
