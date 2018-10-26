@@ -1,3 +1,18 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+	<div class="row">
+
+		<div *ngFor="let hero of heroes" class="col-md-3 mt-4">
+			<mdb-card>
+			  <mdb-card-header class="primary-color white-text">
+			    <h4>{{ hero.name }}</h4>
+			  </mdb-card-header>
+			  <mdb-card-body>
+			    <mdb-card-title>Id: {{ hero.id }}</mdb-card-title>
+			    <mdb-card-text>Name: {{ hero.name }}</mdb-card-text>
+			    <a mdbBtn color="primary" class="waves-light" mdbWavesEffect>Edit Hero</a>
+			  </mdb-card-body>
+			</mdb-card>
+		</div>
+
+	</div>
+</div>
