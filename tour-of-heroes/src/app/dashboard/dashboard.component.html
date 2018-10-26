@@ -9,7 +9,7 @@
 			  <mdb-card-body>
 			    <mdb-card-title>Id: {{ hero.id }}</mdb-card-title>
 			    <mdb-card-text>Name: {{ hero.name }}</mdb-card-text>
-			    <a mdbBtn class="waves-light" [class.btn-primary]="selectedHero === hero" [class.btn-secondary]="selectedHero !== hero" mdbWavesEffect>Edit Hero</a>
+			    <a mdbBtn routerLink="/hero/detail/{{ hero.id }}" class="waves-light" [class.btn-primary]="selectedHero === hero" [class.btn-secondary]="selectedHero !== hero" mdbWavesEffect>Edit Hero</a>
 			  </mdb-card-body>
 			</mdb-card>
 		</div>

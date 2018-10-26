@@ -2,23 +2,15 @@
 
     <div *ngFor="let hero of heroes" class="mt-4">
         <mdb-card>
-          <mdb-card-header 
-            [class.primary-color]="hero === selectedHero"
-            [class.white-text]="hero === selectedHero"
-            [class.mdb-color]="hero !== selectedHero"
-            [class.lighten-4]="hero !== selecterHero"
-            [class.black-text]="hero !== selectedHero">
-             <!-- class="mdb-color lighten-4 white-text" -->
+          <mdb-card-header class="mdb-color lighten-2 white-text">
             <h4>{{ hero.name | titlecase }}</h4>
           </mdb-card-header>
           <mdb-card-body>
             <mdb-card-title>Id: {{ hero.id }}</mdb-card-title>
             <mdb-card-text>Name: {{ hero.name | titlecase }}</mdb-card-text>
-            <a (click)="onSelect(hero)" mdbBtn color="blue-grey" class="waves-light" mdbWavesEffect>Edit Hero</a>
+            <a routerLink="/hero/detail/{{ hero.id }}" mdbBtn color="blue-grey" class="waves-light " mdbWavesEffect>Edit Hero</a>
           </mdb-card-body>
         </mdb-card>
     </div>
-
-    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 </div>
