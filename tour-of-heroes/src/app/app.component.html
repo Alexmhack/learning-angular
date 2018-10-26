@@ -1,5 +1,35 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+    	<a class="navbar-brand" routerLink="/">Heroes</a>
+    </mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link waves-light" routerLink="/" mdbWavesEffect>Home<span class="sr-only">(current)</span></a>
+            </li>
+
+			<li class="nav-item">
+                <a class="nav-link waves-light" routerLink="/heroes" mdbWavesEffect>Heroes</a>
+            </li>
+        </ul>
+
+    </links>
+    <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
+
 <div class="container mt-4 mb-4">
+
+
   <h1>{{ title }}</h1>
   <app-messages></app-messages>
-  <app-heroes></app-heroes>
+  <router-outlet></router-outlet>
 </div>
