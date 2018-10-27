@@ -70,13 +70,29 @@ export class HeroService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
 
-     const addUrl = this.heroesUrl + `create/`;
+    const addUrl = this.heroesUrl + `create/`;
 
-     return this.http.post<Hero>(addUrl, hero, httpOptions)
-       .pipe(
-         tap(_ => this.log(`added hero: Name=${hero.name}`)),
-         catchError(this.handleError<Hero>('addHero ID=${hero.id}'))
-        )
+    return this.http.post<Hero>(addUrl, hero, httpOptions)
+     .pipe(
+       tap(_ => this.log(`added hero: Name=${hero.name}`)),
+       catchError(this.handleError<Hero>('addHero ID=${hero.id}'))
+      )
+  }
+
+  deleteHero(hero: Hero | number): Observable<Hero> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+
+    const id = typeof hero === 'number' ? hero : hero.id;
+
+    const deleteUrl = this.heroesUrl + `${id}/delete/`;
+
+    return this.http.delete<Hero>(deleteUrl, httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted hero: ID=${id}`)),
+        catchError(this.handleError<Hero>(`deleteHero ID=${id}`))
+      )
   }
 
   /**
