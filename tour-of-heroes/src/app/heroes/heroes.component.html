@@ -4,7 +4,7 @@
     <label for="heroName" class="">New hero</label>
   </div>
   <div class="md-form form-group">
-    <a (click)="add(heroName.value); heroName.value = ''" mdbBtn color="primary" size="md" class="waves-light" mdbWavesEffect>Save</a>
+    <a (click)="add(heroName.value); heroName.value = ''" mdbBtn color="primary" size="md" class="waves-light" [class.disabled]="heroName.value === ''" mdbWavesEffect>Save</a>
   </div>
 </form>
 
