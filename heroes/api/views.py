@@ -7,3 +7,8 @@ from heroes.models import Hero
 class HeroList(generics.ListCreateAPIView):
 	queryset = Hero.objects.all()
 	serializer_class = HeroSerializer
+
+
+class HeroDetailAPI(generics.RetrieveAPIView):
+	queryset = Hero.objects.all()
+	serializer_class = HeroSerializer

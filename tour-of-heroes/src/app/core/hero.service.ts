@@ -17,7 +17,7 @@ export class HeroService {
     private http: HttpClient
    ) { }
 
-  private heroesUrl = 'http://127.0.0.1:8000/heroes/list';
+  private heroesUrl = 'http://127.0.0.1:8000/heroes/';
 
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
@@ -28,19 +28,24 @@ export class HeroService {
   	// this.messageService.add('HeroService: Fetched Heroes');
   	// return of(HEROES);
 
-    return this.http.get<Hero[]>(this.heroesUrl)
+    return this.http.get<Hero[]>(this.heroesUrl + 'list')
       .pipe(
         tap(heroes => this.log('fetched heroes')),
         catchError(this.handleError('getHeroes', []))
        )
   }
 
-  getHero(id): Observable<Hero> {
+  getHero(id: number): Observable<Hero> {
   	// TODO: send message __after__ fetching the hero
   	// this.messageService.add(`HeroService: Fetched Hero ID=${id}`);
   	// return of(HEROES.find(hero => hero.id === id));
 
-    return  // <- implement a rest api for detail view
+    const url = this.heroesUrl + `${id}/detail`;
+    return this.http.get<Hero>(url)
+      .pipe(
+        tap(_ => this.log(`fetched hero: ID=${id}`)),
+        catchError(this.handleError<Hero>(`getHero ID=${id}`))
+       )
   }
 
   /**
