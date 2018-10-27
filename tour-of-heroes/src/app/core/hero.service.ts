@@ -40,11 +40,27 @@ export class HeroService {
   	// this.messageService.add(`HeroService: Fetched Hero ID=${id}`);
   	// return of(HEROES.find(hero => hero.id === id));
 
-    const url = this.heroesUrl + `${id}/detail`;
-    return this.http.get<Hero>(url)
+    const detailUrl = this.heroesUrl + `${id}/detail`;
+    return this.http.get<Hero>(detailUrl)
       .pipe(
         tap(_ => this.log(`fetched hero: ID=${id}`)),
         catchError(this.handleError<Hero>(`getHero ID=${id}`))
+       )
+  }
+
+  updateHero(hero: Hero): Observable<any> {
+    // http header needed for put requests
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    const updateUrl = this.heroesUrl + `${hero.id}/update/`;
+
+    // sending a put request with (url, data, options)
+    return this.http.put(updateUrl, hero, httpOptions)
+      .pipe(
+        tap(_ => this.log(`updated hero: ID=${hero.id}`)),
+        catchError(this.handleError<any>(`updateHero ID=${hero.id}`))
        )
   }
 
