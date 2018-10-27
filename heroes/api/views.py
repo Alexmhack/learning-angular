@@ -17,3 +17,8 @@ class HeroDetailAPI(generics.RetrieveAPIView):
 class HeroUpdateAPI(generics.UpdateAPIView):
 	queryset = Hero.objects.all()
 	serializer_class = HeroSerializer
+
+
+class HeroCreateAPI(generics.CreateAPIView):
+	queryset = Hero.objects.all()
+	serializer_class = HeroSerializer

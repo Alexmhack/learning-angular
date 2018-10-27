@@ -64,6 +64,21 @@ export class HeroService {
        )
   }
 
+  //  TODO: POST a new hero to the django server
+  addHero(hero: Hero): Observable<Hero> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+
+     const addUrl = this.heroesUrl + `create/`;
+
+     return this.http.post<Hero>(addUrl, hero, httpOptions)
+       .pipe(
+         tap(_ => this.log(`added hero: Name=${hero.name}`)),
+         catchError(this.handleError<Hero>('addHero ID=${hero.id}'))
+        )
+  }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.
